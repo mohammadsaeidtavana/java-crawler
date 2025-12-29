@@ -5,6 +5,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+/**
+ * @author  mohammad saeid tavana
+ * @since 2025
+ * @version 1.0
+ */
 @Service
 public class InvertedIndex {
     private Map<String, Map<Integer, Integer>> index = new HashMap<>();

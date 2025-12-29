@@ -4,6 +4,12 @@ import ir.setareaval.template.domain.Document;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+
+/**
+ * @author  mohammad saeid tavana
+ * @since 2025
+ * @version 1.0
+ */
 @Service
 public class NGramIndex {
 

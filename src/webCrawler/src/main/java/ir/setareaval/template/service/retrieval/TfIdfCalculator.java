@@ -1,7 +1,11 @@
 package ir.setareaval.template.service.retrieval;
 
 import org.springframework.stereotype.Service;
-
+/**
+ * @author  mohammad saeid tavana
+ * @since 2025
+ * @version 1.0
+ */
 @Service
 public class TfIdfCalculator {
 

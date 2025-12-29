@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+/**
+ * @author  mohammad saeid tavana
+ * @since 2025
+ * @version 1.0
+ */
 @Service
 public class Word2VecTrainer {
     private Word2Vec vec;

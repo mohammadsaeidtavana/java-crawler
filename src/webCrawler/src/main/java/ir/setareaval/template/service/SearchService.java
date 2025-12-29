@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * @author  mohammad saeid tavana
+ * @since 2025
+ * @version 1.0
+ */
 @Service
 public class SearchService {
     private final InvertedIndex index;

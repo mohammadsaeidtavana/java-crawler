@@ -3,6 +3,12 @@ package ir.setareaval.template.service.retrieval;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+
+/**
+ * @author  mohammad saeid tavana
+ * @since 2025
+ * @version 1.0
+ */
 @Service
 public class CosineSimilarity {
     public double cosine(Map<String, Double> q, Map<String, Double> d) {
