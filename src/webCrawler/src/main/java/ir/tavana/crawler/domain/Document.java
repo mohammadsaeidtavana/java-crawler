@@ -1,7 +1,7 @@
-package ir.setareaval.template.domain;
+package ir.tavana.crawler.domain;
 
 
-import ir.setareaval.template.service.preprocess.TextPreprocessor;
+import ir.tavana.crawler.service.preprocess.TextPreprocessor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

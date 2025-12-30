@@ -1,7 +1,7 @@
-package ir.setareaval.template.controller;
+package ir.tavana.crawler.controller;
 
-import ir.setareaval.template.domain.SearchResult;
-import ir.setareaval.template.service.SearchService;
+import ir.tavana.crawler.domain.SearchResult;
+import ir.tavana.crawler.service.SearchService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

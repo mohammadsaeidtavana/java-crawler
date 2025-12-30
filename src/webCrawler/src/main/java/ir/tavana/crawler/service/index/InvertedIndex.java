@@ -1,6 +1,6 @@
-package ir.setareaval.template.service.index;
+package ir.tavana.crawler.service.index;
 
-import ir.setareaval.template.domain.Document;
+import ir.tavana.crawler.domain.Document;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;

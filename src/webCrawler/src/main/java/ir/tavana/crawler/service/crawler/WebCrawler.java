@@ -1,7 +1,7 @@
-package ir.setareaval.template.service.crawler;
+package ir.tavana.crawler.service.crawler;
 
-import ir.setareaval.template.domain.Document;
-import ir.setareaval.template.service.preprocess.TextPreprocessor;
+import ir.tavana.crawler.domain.Document;
+import ir.tavana.crawler.service.preprocess.TextPreprocessor;
 import org.jsoup.Jsoup;
 import org.springframework.stereotype.Service;
 

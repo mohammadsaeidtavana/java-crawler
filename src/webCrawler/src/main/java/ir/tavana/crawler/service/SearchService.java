@@ -1,13 +1,13 @@
-package ir.setareaval.template.service;
+package ir.tavana.crawler.service;
 
-import ir.setareaval.template.domain.Document;
-import ir.setareaval.template.domain.SearchResult;
-import ir.setareaval.template.service.crawler.WebCrawler;
-import ir.setareaval.template.service.embedding.Word2VecTrainer;
-import ir.setareaval.template.service.index.InvertedIndex;
-import ir.setareaval.template.service.preprocess.TextPreprocessor;
-import ir.setareaval.template.service.retrieval.CosineSimilarity;
-import ir.setareaval.template.service.retrieval.TfIdfCalculator;
+import ir.tavana.crawler.domain.Document;
+import ir.tavana.crawler.domain.SearchResult;
+import ir.tavana.crawler.service.crawler.WebCrawler;
+import ir.tavana.crawler.service.embedding.Word2VecTrainer;
+import ir.tavana.crawler.service.index.InvertedIndex;
+import ir.tavana.crawler.service.preprocess.TextPreprocessor;
+import ir.tavana.crawler.service.retrieval.CosineSimilarity;
+import ir.tavana.crawler.service.retrieval.TfIdfCalculator;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -45,7 +45,7 @@ public class SearchService {
 
         // کرال و ایندکس کردن اسناد
         try {
-            List<Document> docs = crawler.crawl("https://en.wikipedia.org/wiki/Category:Technology", 800);
+            List<Document> docs = crawler.crawl("xxx", 800);
             documents.addAll(docs);
             int id = 1;
             for (Document doc : docs) {
@@ -106,7 +106,8 @@ public class SearchService {
             double score = 0.7 * tfidfScore + 0.3 * semanticScore;
 
             if (score > 0) {
-                results.add(new SearchResult(doc.getId(), doc.getUrl(), score));
+                String snippet = bestSnippet(query, doc.getRawText());
+                results.add(new SearchResult(doc.getId(), doc.getUrl(), score,snippet));
             }
         }
 
@@ -115,6 +116,41 @@ public class SearchService {
                 .sorted((a, b) -> Double.compare(b.getScore(), a.getScore()))
                 .toList();
     }
+    private String bestSnippet(String query, String rawText) {
+        List<String> sentences = List.of(rawText.split("[.!?]"));
+
+        List<String> qTokens = preprocessor.preprocess(query, 2);
+        Map<String, Double> qVector = buildVector(qTokens);
+
+        double bestScore = 0;
+        String bestSentence = "";
+
+        for (String sentence : sentences) {
+            List<String> sTokens = preprocessor.preprocess(sentence, 2);
+            Map<String, Double> sVector = buildVector(sTokens);
+
+            double sim = cosine.cosine(qVector, sVector);
+            if (sim > bestScore) {
+                bestScore = sim;
+                bestSentence = sentence;
+            }
+        }
+        return bestSentence.trim();
+    }
+    private Map<String, Double> buildVector(List<String> tokens) {
+        Map<String, Double> vector = new HashMap<>();
+
+        for (String term : tokens) {
+            int df = index.getPostings(term).size();
+            if (df == 0) continue;
+
+            vector.put(term,
+                    tfidf.tf(1) * tfidf.idf(documents.size(), df));
+        }
+        return vector;
+    }
+
+
 }
 
 

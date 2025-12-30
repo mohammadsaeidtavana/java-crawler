@@ -1,6 +1,6 @@
-package ir.setareaval.template.service.embedding;
+package ir.tavana.crawler.service.embedding;
 
-import ir.setareaval.template.domain.Document;
+import ir.tavana.crawler.domain.Document;
 import org.deeplearning4j.models.word2vec.Word2Vec;
 import org.deeplearning4j.text.sentenceiterator.CollectionSentenceIterator;
 import org.deeplearning4j.text.sentenceiterator.SentenceIterator;

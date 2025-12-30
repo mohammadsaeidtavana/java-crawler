@@ -1,4 +1,4 @@
-package ir.setareaval.template;
+package ir.tavana.crawler;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

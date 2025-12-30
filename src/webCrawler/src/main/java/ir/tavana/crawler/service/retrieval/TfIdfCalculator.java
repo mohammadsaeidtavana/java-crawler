@@ -1,4 +1,4 @@
-package ir.setareaval.template.service.retrieval;
+package ir.tavana.crawler.service.retrieval;
 
 import org.springframework.stereotype.Service;
 /**

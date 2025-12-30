@@ -1,4 +1,4 @@
-package ir.setareaval.template.service.preprocess;
+package ir.tavana.crawler.service.preprocess;
 
 import org.springframework.stereotype.Service;
 

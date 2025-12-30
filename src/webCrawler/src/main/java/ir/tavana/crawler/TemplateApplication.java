@@ -1,4 +1,4 @@
-package ir.setareaval.template;
+package ir.tavana.crawler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
