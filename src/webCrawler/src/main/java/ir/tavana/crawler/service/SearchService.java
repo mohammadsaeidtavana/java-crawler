@@ -45,7 +45,9 @@ public class SearchService {
 
         // کرال و ایندکس کردن اسناد
         try {
-            List<Document> docs = crawler.crawl("xxx", 800);
+            //List<Document> docs = crawler.crawl("https://techmeme.com", 500); 121
+            List<Document> docs = crawler.crawl("https://en.wikipedia.org/wiki/Category:Technology", 800                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  );
+           // List<Document> docs = crawler.crawl("https://en.wikipedia.org/wiki/Technology", 10);  //>500
             documents.addAll(docs);
             int id = 1;
             for (Document doc : docs) {
